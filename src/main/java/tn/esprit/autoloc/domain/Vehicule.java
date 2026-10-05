@@ -46,4 +46,10 @@ public class Vehicule {
       joinColumns = @JoinColumn(name = "id_vehicule"),
       inverseJoinColumns = @JoinColumn(name = "id_equipement"))
   List<Equipement> equipements = new ArrayList<>();
+
+  @OneToMany(mappedBy = "vehicule")
+  private List<Reservation> reservation = new ArrayList<>();
+
+  @ManyToOne
+  Agence agence;
 }
