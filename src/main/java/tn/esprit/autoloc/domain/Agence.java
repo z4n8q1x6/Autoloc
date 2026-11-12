@@ -1,8 +1,10 @@
 package tn.esprit.autoloc.domain;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,6 @@ public class Agence {
     @OneToMany(mappedBy = "agence")
     List<Vehicule> vehicules = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agence1")
+    @OneToMany(mappedBy = "agence")
     List<Employe> employes = new ArrayList<>();
 }
