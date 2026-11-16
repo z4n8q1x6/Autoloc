@@ -6,8 +6,15 @@ import java.util.List;
 
 public interface IAgenceService {
     Agence ajouterAgence(Agence agence);
+
     Agence modifierAgence(Agence agence);
+
     Agence afficherAgenceById(Long id);
+
     List<Agence> afficherAllAgences();
+
     void supprimerAgence(Long id);
+
+    Agence ajouterAgenceEtAffecterVehicules(Agence agence);
+
 }

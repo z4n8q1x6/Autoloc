@@ -15,4 +15,8 @@ public interface IVehiculeService {
     void deleteVehicule(Long id);
 
     List<Vehicule> getAllVehicule();
+
+    Vehicule affecterEquipement(Long idVehicule, Long idEquipement);
+
+    Vehicule desaffecterEquipement(Long idVehicule, Long idEquipement);
 }

@@ -4,15 +4,19 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.domain.Agence;
+import tn.esprit.autoloc.domain.Vehicule;
 import tn.esprit.autoloc.repository.AgenceRepository;
+import tn.esprit.autoloc.repository.VehiculeRepository;
 
 import java.util.List;
 
 
 @Service
 @AllArgsConstructor
-public class IAgenceServiceImp implements IAgenceService{
+public class IAgenceServiceImp implements IAgenceService {
     private final AgenceRepository agenceRepository;
+    private final VehiculeRepository vehiculeRepository;
+
     @Override
     public Agence ajouterAgence(Agence agence) {
         return agenceRepository.save(agence);
@@ -37,4 +41,15 @@ public class IAgenceServiceImp implements IAgenceService{
     public void supprimerAgence(Long id) {
         agenceRepository.deleteById(id);
     }
+
+    @Override
+    public Agence ajouterAgenceEtAffecterVehicules(Agence agence) {
+        Agence ret = agenceRepository.save(agence);
+        for (Vehicule vehicule : agence.getVehicules()) {
+            vehicule.setAgence(agence);
+        }
+        vehiculeRepository.saveAll(agence.getVehicules());
+        return ret;
+    }
+
 }

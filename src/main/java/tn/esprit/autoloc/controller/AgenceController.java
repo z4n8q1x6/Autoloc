@@ -17,14 +17,17 @@ public class AgenceController {
     public List<Agence> listAgences() {
         return agenceService.afficherAllAgences();
     }
+
     @PostMapping("/ajouterAgence")
     public Agence ajouterAgence(@RequestBody Agence agence) {
         return agenceService.ajouterAgence(agence);
     }
+
     @PutMapping("/modifierAgence")
     public Agence modifierAgence(@RequestBody Agence agence) {
         return agenceService.modifierAgence(agence);
     }
+
     @GetMapping("/afficherAgence/{id}")
     public Agence afficherAgence(@PathVariable Long id) {
         return agenceService.afficherAgenceById(id);
@@ -32,7 +35,13 @@ public class AgenceController {
 
     @DeleteMapping("/supprimerAgence/{id}")
     public void supprimerAgence(@PathVariable Long id) {
-       agenceService.supprimerAgence(id);
+        agenceService.supprimerAgence(id);
     }
+
+    @PostMapping("/ajouterAgenceEtAffecterVehicules")
+    public Agence ajouterAgenceEtAffecterVehicules(@RequestBody Agence agence) {
+        return agenceService.ajouterAgenceEtAffecterVehicules(agence);
+    }
+
 }
 

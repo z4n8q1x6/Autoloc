@@ -38,4 +38,16 @@ public class VehiculeController {
     public void supprimerVehicule(@PathVariable Long id) {
         vehiculeService.deleteVehicule(id);
     }
+
+    @PutMapping("/{idVehicule}/equipements/{idEquipement}")
+    public Vehicule affecterEquipement(@PathVariable Long idVehicule,
+                                       @PathVariable Long idEquipement) {
+        return vehiculeService.affecterEquipement(idVehicule, idEquipement);
+    }
+
+    @DeleteMapping("/{idVehicule}/equipements/{idEquipement}")
+    public Vehicule desaffecterEquipement(@PathVariable Long idVehicule,
+                                          @PathVariable Long idEquipement) {
+        return vehiculeService.desaffecterEquipement(idVehicule, idEquipement);
+    }
 }
