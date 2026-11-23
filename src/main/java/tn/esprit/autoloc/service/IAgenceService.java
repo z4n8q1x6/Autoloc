@@ -17,4 +17,6 @@ public interface IAgenceService {
 
     Agence ajouterAgenceEtAffecterVehicules(Agence agence);
 
+    void suivreNombreAgences();
+
 }
